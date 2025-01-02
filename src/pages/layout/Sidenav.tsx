@@ -10,13 +10,14 @@ import {
   ChevronRight,
   Info,
   LayoutDashboard,
+  LogOut,
   Menu,
   Package,
   Settings,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/logo.png";
 import { useState } from "react";
+import viteLogo from "/vite.svg";
 
 const Sidenav = () => {
   const [showActivitiesSubnav, setShowActivitiesSubnav] = useState(false);
@@ -46,14 +47,14 @@ const Sidenav = () => {
   };
 
   return (
-    <div className="bg-[#FFC92E] h-full w-full">
+    <div className="bg-white h-full w-full">
       <div className="left-0 flex-col items-center max-sm:px-6 max-sm:gap-64 px-10 py-10">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <div className="flex items-center gap-2 text-black font-bold pb-6">
             <NavLink to="/">
-              <img src={logo} alt="Logo" className="h-12" />
+              <img src={viteLogo} alt="Logo" className="h-12" />
             </NavLink>
-            FBB Portal
+            My wallet
           </div>
         </nav>
         <Sheet>
@@ -109,7 +110,7 @@ const Sidenav = () => {
               className="flex items-center gap-3 rounded-lg px-3 py-4 text-black"
             >
               <LayoutDashboard className="h-4 w-4" />
-              Dashboard
+              Overview
             </NavLink>
             <div className="relative">
               <div
@@ -121,7 +122,7 @@ const Sidenav = () => {
                 }`}
               >
                 <Activity className="h-4 w-4" />
-                Activities
+                Transactions
                 <ChevronRight
                   className={`h-4 w-4 ml-2 ${
                     showActivitiesSubnav ? "rotate-90" : ""
@@ -152,7 +153,7 @@ const Sidenav = () => {
                 }`}
               >
                 <Package className="h-4 w-4" />
-                Data Sharing
+                Budgets
                 <ChevronRight
                   className={`h-4 w-4 ml-2 ${
                     showDataSharingSubnav ? "rotate-90" : ""
@@ -197,12 +198,13 @@ const Sidenav = () => {
               className="flex items-center gap-3 rounded-lg px-3 py-4 text-black"
             >
               <Settings className="h-4 w-4" />
-              Reset Pin
+              Wallet
             </NavLink>
           </nav>
         </div>
-        <div className="mt-auto p-4">
-          <Button size="sm" className="w-full mtn-btn">
+        <div className="w-full h-20 mt-auto flex items-center border-t-2">
+          <Button size="sm" className="w-full mtn-btn bg-white text-black">
+            <LogOut />
             LogOut
           </Button>
         </div>
