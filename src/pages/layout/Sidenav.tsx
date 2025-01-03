@@ -80,8 +80,8 @@ const Sidenav = () => {
                 <span></span>
               </div>
               <SheetClose asChild>
-                <NavLink to="/work" className="hover:text-foreground">
-                  Work
+                <NavLink to="/" className="hover:text-foreground">
+                  Overview
                 </NavLink>
               </SheetClose>
               <SheetClose asChild>
@@ -89,7 +89,7 @@ const Sidenav = () => {
                   to="/"
                   className="text-muted-foreground hover:text-foreground"
                 >
-                  About
+                  Transactions
                 </NavLink>
               </SheetClose>
               <SheetClose asChild>
@@ -97,7 +97,15 @@ const Sidenav = () => {
                   to="/contact"
                   className="text-muted-foreground hover:text-foreground"
                 >
-                  Contact
+                  Budgets
+                </NavLink>
+              </SheetClose>
+              <SheetClose asChild>
+                <NavLink
+                  to="/contact"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  Wallets
                 </NavLink>
               </SheetClose>
             </nav>
@@ -112,87 +120,21 @@ const Sidenav = () => {
               <LayoutDashboard className="h-4 w-4" />
               Overview
             </NavLink>
-            <div className="relative">
-              <div
-                onClick={toggleActivitiesSubnav}
-                className={`flex items-center gap-3 rounded-lg px-3 py-4 text-black cursor-pointer ${
-                  activeDropdown === "activities"
-                    ? "font-bold text-underline"
-                    : ""
-                }`}
-              >
-                <Activity className="h-4 w-4" />
-                Transactions
-                <ChevronRight
-                  className={`h-4 w-4 ml-2 ${
-                    showActivitiesSubnav ? "rotate-90" : ""
-                  }`}
-                />{" "}
-              </div>
-              {showActivitiesSubnav && (
-                <>
-                  <div className="top-full px-9 w-full">
-                    <NavLink to="/buy-bundle">Buy Bundle</NavLink>
-                  </div>
-                  <div className="top-full px-9 mt-3 w-full">
-                    <NavLink to="/transfer-airtime">Transfer Airtime</NavLink>
-                  </div>
-                  <div className="top-full px-9 mt-3 w-full">
-                    <NavLink to="/load-voucher">Load Voucher</NavLink>
-                  </div>
-                </>
-              )}
-            </div>
-            <div className="relative">
-              <div
-                onClick={toggleDataSharingSubnav}
-                className={`flex items-center gap-3 rounded-lg px-3 py-4 text-black cursor-pointer ${
-                  activeDropdown === "dataSharing"
-                    ? "font-bold text-underline"
-                    : ""
-                }`}
-              >
-                <Package className="h-4 w-4" />
-                Budgets
-                <ChevronRight
-                  className={`h-4 w-4 ml-2 ${
-                    showDataSharingSubnav ? "rotate-90" : ""
-                  }`}
-                />{" "}
-                {/* Replace SVG with ChevronRight */}
-              </div>
-              {showDataSharingSubnav && (
-                <div className="px-9 top-full mt-1 w-full">
-                  <NavLink to="/allocate-bundle">Allocate Bundle</NavLink>
-                </div>
-              )}
-            </div>
-            <div className="relative">
-              <div
-                onClick={toggleInfoSubnav}
-                className={`flex items-center gap-3 rounded-lg px-3 py-4 text-black cursor-pointer ${
-                  activeDropdown === "info" ? "font-bold text-underline" : ""
-                }`}
-              >
-                <Info className="h-4 w-4" />
-                Info
-                <ChevronRight
-                  className={`h-4 w-4 ml-2 ${
-                    showInfoSubnav ? "rotate-90" : ""
-                  }`}
-                />{" "}
-              </div>
-              {showInfoSubnav && (
-                <>
-                  <div className=" top-full px-9 w-full">
-                    <NavLink to="/airtime">Airtime</NavLink>
-                  </div>
-                  <div className=" top-full px-9 mt-3 w-full">
-                    <NavLink to="/bundle">Bundle</NavLink>
-                  </div>
-                </>
-              )}
-            </div>
+            <NavLink
+              to="/transactions"
+              className="flex items-center gap-3 rounded-lg px-3 py-4 text-black"
+            >
+              <Activity className="h-4 w-4" />
+              Transactions
+            </NavLink>
+
+            <NavLink
+              to="/transactions"
+              className="flex items-center gap-3 rounded-lg px-3 py-4 text-black"
+            >
+              <Package className="h-4 w-4" />
+              Budgets
+            </NavLink>
             <NavLink
               to="/reset-pin"
               className="flex items-center gap-3 rounded-lg px-3 py-4 text-black"
