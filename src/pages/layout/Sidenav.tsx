@@ -20,32 +20,6 @@ import { useState } from "react";
 import viteLogo from "/vite.svg";
 
 const Sidenav = () => {
-  const [showActivitiesSubnav, setShowActivitiesSubnav] = useState(false);
-  const [showDataSharingSubnav, setShowDataSharingSubnav] = useState(false);
-  const [showInfoSubnav, setShowInfoSubnav] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<null | string>(null); // Set the type of activeDropdown
-
-  const toggleActivitiesSubnav = () => {
-    setShowActivitiesSubnav(!showActivitiesSubnav);
-    setShowDataSharingSubnav(false); // Close other subnavs
-    setShowInfoSubnav(false);
-    setActiveDropdown(activeDropdown === "activities" ? null : "activities"); // Toggle activeDropdown
-  };
-
-  const toggleDataSharingSubnav = () => {
-    setShowDataSharingSubnav(!showDataSharingSubnav);
-    setShowActivitiesSubnav(false); // Close other subnavs
-    setShowInfoSubnav(false);
-    setActiveDropdown(activeDropdown === "dataSharing" ? null : "dataSharing"); // Toggle activeDropdown
-  };
-
-  const toggleInfoSubnav = () => {
-    setShowInfoSubnav(!showInfoSubnav);
-    setShowActivitiesSubnav(false); // Close other subnavs
-    setShowDataSharingSubnav(false);
-    setActiveDropdown(activeDropdown === "info" ? null : "info"); // Toggle activeDropdown
-  };
-
   return (
     <div className="bg-white h-full w-full">
       <div className="left-0 flex-col items-center max-sm:px-6 max-sm:gap-64 px-10 py-10">
